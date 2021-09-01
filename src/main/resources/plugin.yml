@@ -1,0 +1,8 @@
+name: MinigameCore
+version: ${project.version}
+main: dev.mrshawn.minigamecore.MinigameCore
+api-version: 1.17
+prefix: MinigameCore
+authors: [ MrShawn ]
+description: Core for creating minigames easily
+website: https://mrshawn.dev/
