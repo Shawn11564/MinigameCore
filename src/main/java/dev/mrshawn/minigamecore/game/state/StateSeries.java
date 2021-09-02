@@ -21,12 +21,14 @@ public class StateSeries {
 		addNext(state);
 	}
 
-	public void addNext(State state) {
+	public StateSeries addNext(State state) {
 		states.add(state);
+		return this;
 	}
 
-	public void addNext(List<State> states) {
+	public StateSeries addNext(List<State> states) {
 		this.states.addAll(states);
+		return this;
 	}
 
 	public void start() {
