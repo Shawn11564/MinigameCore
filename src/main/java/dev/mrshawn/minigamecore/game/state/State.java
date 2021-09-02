@@ -89,6 +89,9 @@ public abstract class State implements Listener {
 		return ended || getRemainingSeconds() <= 0;
 	}
 
+	/**
+	 * @return integer >= 0 indicating the remaining seconds
+	 */
 	public int getRemainingSeconds() {
 		int timeRemaining = (int) ((endTime - System.currentTimeMillis()) / 1000);
 		return Math.max(timeRemaining, 0);

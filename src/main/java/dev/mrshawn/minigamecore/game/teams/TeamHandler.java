@@ -11,36 +11,66 @@ public final class TeamHandler {
 	@Getter
 	private final Map<String, Team> teams = new HashMap<>();
 
-	public void createTeam(String name, ChatColor color) {
-		teams.put(name, new Team(name, color));
+	public Team createTeam(String name, ChatColor color) {
+		return teams.put(name, new Team(name, color));
 	}
 
 	public Team getTeam(String name) {
 		return teams.get(name);
 	}
 
-	public void setTeam(UUID uuid, Team team) {
-		team.addPlayer(uuid);
+	public Team getTeam(Player player) {
+		return getTeam(player.getUniqueId());
 	}
 
-	public void setTeam(Player player, Team team) {
-		team.addPlayer(player.getUniqueId());
+	public Team getTeam(UUID uuid) {
+		for (Team team : teams.values()) {
+			if (team.getPlayers().contains(uuid)) {
+				return team;
+			}
+		}
+		return null;
 	}
 
-	public void setTeam(UUID uuid, String teamName) {
-		teams.get(teamName).addPlayer(uuid);
+	public boolean hasTeam(Player player) {
+		return hasTeam(player.getUniqueId());
 	}
 
-	public void setTeam(Player player, String teamName) {
-		teams.get(teamName).addPlayer(player.getUniqueId());
+	public boolean hasTeam(UUID uuid) {
+		return getTeam(uuid) != null;
 	}
 
-	public void addPlayer(UUID uuid) {
-		getLowestPlayers().addPlayer(uuid);
+	public Team setTeam(UUID uuid, Team team) {
+		return team.addPlayer(uuid);
 	}
 
-	public void addPlayer(Player player) {
-		getLowestPlayers().addPlayer(player.getUniqueId());
+	public Team setTeam(Player player, Team team) {
+		return team.addPlayer(player.getUniqueId());
+	}
+
+	public Team setTeam(UUID uuid, String teamName) {
+		return teams.get(teamName).addPlayer(uuid);
+	}
+
+	public Team setTeam(Player player, String teamName) {
+		return teams.get(teamName).addPlayer(player.getUniqueId());
+	}
+
+	public Team addPlayer(UUID uuid) {
+		return getLowestPlayers().addPlayer(uuid);
+	}
+
+	public Team addPlayer(Player player) {
+		return getLowestPlayers().addPlayer(player.getUniqueId());
+	}
+
+	public Team clearTeamPlayers(Team team) {
+		team.clearTeamPlayers();
+		return team;
+	}
+
+	public void clearTeamPlayers() {
+		teams.values().forEach(Team::clearTeamPlayers);
 	}
 
 	public Team getLowestPlayers() {

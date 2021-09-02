@@ -15,15 +15,9 @@ public final class MinigameCore extends JavaPlugin {
 	@Override
 	public void onEnable() {
 		instance = this;
-
 	}
 
-	@Override
-	public void onDisable() {
-		// Plugin shutdown logic
-	}
-
-	/*
+	/**
 	 * @return Returns providing plugin or MinigameCore's instance if providing plugin is null
 	 */
 	public static JavaPlugin getProvidingPlugin() {
