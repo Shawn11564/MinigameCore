@@ -26,11 +26,11 @@ public abstract class State implements Listener {
 		this.duration = duration;
 	}
 
-	protected abstract void onStart();
+	protected void onStart() {}
 
-	protected abstract void onUpdate();
+	protected void onUpdate() {}
 
-	protected abstract void onEnd();
+	protected void onEnd() {}
 
 	protected void start() {
 		register();

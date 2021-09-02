@@ -19,21 +19,6 @@ public class LobbyState extends State {
 		this.lobbyLocation = lobbyLocation;
 	}
 
-	@Override
-	protected void onStart() {
-
-	}
-
-	@Override
-	protected void onUpdate() {
-
-	}
-
-	@Override
-	protected void onEnd() {
-
-	}
-
 	@EventHandler
 	public void onJoin(PlayerJoinEvent event) {
 		teamHandler.addPlayer(event.getPlayer());

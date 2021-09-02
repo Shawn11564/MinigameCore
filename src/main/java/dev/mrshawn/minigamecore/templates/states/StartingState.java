@@ -21,16 +21,6 @@ public class StartingState extends State {
 		teamHandler.getTeams().values().forEach(Team::teleportPlayersToSpawn);
 	}
 
-	@Override
-	protected void onUpdate() {
-
-	}
-
-	@Override
-	protected void onEnd() {
-
-	}
-
 	@EventHandler
 	public void onJoin(PlayerJoinEvent event) {
 		teamHandler
