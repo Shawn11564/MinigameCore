@@ -1,4 +1,4 @@
-package dev.mrshawn.minigamecore.game.manager.state;
+package dev.mrshawn.minigamecore.game.state;
 
 import dev.mrshawn.minigamecore.MinigameCore;
 import lombok.Getter;

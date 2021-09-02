@@ -20,7 +20,7 @@ public class Chat {
 	}
 
 	public static void log(String messages) {
-		tell(Bukkit.getConsoleSender(), "[" + MinigameCore.getInstance().getName() + "] " + messages);
+		tell(Bukkit.getConsoleSender(), "[" + MinigameCore.getProvidingPlugin().getName() + "] " + messages);
 	}
 
 	public static void tell(CommandSender toWhom, String... messages) {

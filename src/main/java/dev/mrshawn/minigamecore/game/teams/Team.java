@@ -19,9 +19,18 @@ public class Team {
 
 	private Location spawnLocation;
 
+	public Team(String name) {
+		this(name, ChatColor.WHITE);
+	}
+
 	public Team(String name, ChatColor teamColor) {
+		this(name, teamColor, null);
+	}
+
+	public Team(String name, ChatColor teamColor, Location spawnLocation) {
 		this.name = name;
 		this.teamColor = teamColor;
+		this.spawnLocation = spawnLocation;
 	}
 
 	public void addPlayer(UUID uuid) {

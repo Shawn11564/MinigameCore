@@ -6,7 +6,7 @@ import org.bukkit.entity.Player;
 
 import java.util.*;
 
-public final class TeamManager {
+public final class TeamHandler {
 
 	@Getter
 	private final Map<String, Team> teams = new HashMap<>();

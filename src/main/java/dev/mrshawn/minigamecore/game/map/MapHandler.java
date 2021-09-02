@@ -1,6 +1,5 @@
 package dev.mrshawn.minigamecore.game.map;
 
-import dev.mrshawn.minigamecore.MinigameCore;
 import dev.mrshawn.minigamecore.game.map.impl.LocalGameMap;
 import org.bukkit.Bukkit;
 
@@ -10,17 +9,14 @@ import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.ThreadLocalRandom;
 
-public final class MapManager {
+public final class MapHandler {
 
-	private final MinigameCore main;
 	private final List<String> mapNames = new ArrayList<>();
 	private LocalGameMap map;
 	private final File gameMapsFolder;
 
 	@SuppressWarnings("ResultOfMethodCallIgnored")
-	public MapManager(MinigameCore main) {
-		this.main = main;
-
+	public MapHandler() {
 		this.gameMapsFolder = new File(
 				Bukkit.getWorldContainer().getParentFile(),
 				"maps"
@@ -35,8 +31,9 @@ public final class MapManager {
 		}
 	}
 
-	public void loadMap(String mapName) {
+	public GameMap loadMap(String mapName) {
 		map = new LocalGameMap(gameMapsFolder, mapName, true);
+		return map;
 	}
 
 	public String pickRandomMap() {
