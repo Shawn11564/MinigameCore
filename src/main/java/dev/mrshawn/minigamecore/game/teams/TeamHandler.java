@@ -1,18 +1,29 @@
 package dev.mrshawn.minigamecore.game.teams;
 
+import de.leonhard.storage.Json;
 import lombok.Getter;
 import org.bukkit.ChatColor;
+import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
 import java.util.*;
 
-public final class TeamHandler {
+public class TeamHandler {
 
 	@Getter
+	protected final Json configFile;
 	private final Map<String, Team> teams = new HashMap<>();
+
+	public TeamHandler(String filePath) {
+		configFile = new Json("teams", filePath);
+	}
 
 	public Team createTeam(String name, ChatColor color) {
 		return teams.put(name, new Team(name, color));
+	}
+
+	public Team createTeam(String name, ChatColor color, Location spawnLocation) {
+		return teams.put(name, new Team(name, color, spawnLocation));
 	}
 
 	public Team getTeam(String name) {
@@ -62,6 +73,10 @@ public final class TeamHandler {
 
 	public Team addPlayer(Player player) {
 		return getLowestPlayers().addPlayer(player.getUniqueId());
+	}
+
+	public List<Team> getTeams() {
+		return new ArrayList<>(this.teams.values());
 	}
 
 	public Team clearTeamPlayers(Team team) {

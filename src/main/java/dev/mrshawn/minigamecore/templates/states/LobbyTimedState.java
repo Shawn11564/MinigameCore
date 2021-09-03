@@ -8,12 +8,12 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerTeleportEvent;
 
-public class LobbyState extends State {
+public class LobbyTimedState extends State {
 
 	private final TeamHandler teamHandler;
 	private final Location lobbyLocation;
 
-	public LobbyState(int duration, TeamHandler teamHandler, Location lobbyLocation) {
+	public LobbyTimedState(int duration, TeamHandler teamHandler, Location lobbyLocation) {
 		super(duration);
 		this.teamHandler = teamHandler;
 		this.lobbyLocation = lobbyLocation;

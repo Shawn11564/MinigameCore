@@ -31,6 +31,10 @@ public class StateSeries {
 		return this;
 	}
 
+	public State getCurrentState() {
+		return states.get(current);
+	}
+
 	public void start() {
 		if (states.isEmpty()) {
 			end();
@@ -67,6 +71,12 @@ public class StateSeries {
 	public void end() {
 		if (current < states.size()) {
 			states.get(current).end();
+		}
+	}
+
+	public void backup() {
+		if (current > 0) {
+			current--;
 		}
 	}
 

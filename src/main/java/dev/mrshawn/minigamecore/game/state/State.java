@@ -13,7 +13,7 @@ import java.util.Set;
 public abstract class State implements Listener {
 
 	@Getter
-	private boolean started, ended;
+	protected boolean started, ended;
 
 	private int duration;
 	private long startTime;
@@ -83,6 +83,10 @@ public abstract class State implements Listener {
 	protected void cancelTask(BukkitTask task) {
 		task.cancel();
 		tasks.remove(task);
+	}
+
+	public void setEnded(boolean ended) {
+		this.ended = ended;
 	}
 
 	public boolean isReadyToEnd() {
